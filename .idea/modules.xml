@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testscala2.iml" filepath="$PROJECT_DIR$/.idea/modules/testscala2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testscala2-build.iml" filepath="$PROJECT_DIR$/.idea/modules/testscala2-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ststream.iml" filepath="$PROJECT_DIR$/.idea/modules/ststream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ststream-build.iml" filepath="$PROJECT_DIR$/.idea/modules/ststream-build.iml" />
     </modules>
   </component>
 </project>

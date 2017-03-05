@@ -14,11 +14,12 @@ case class CInfo(lastUpdate: java.util.Date,
                  year_pvb: Double,
                  year_div_p: Double,
                  target_price: Double,
-                 rec: String) {
+                 rec: String,
+                 groupDate: String) {
 
   def toFileString: String = {
     val tmp = lastUpdate.getTime
-    s"${tmp}|${lastUpdate}|${stockName}|${brokerName}|${year_f}|${change_p}|${next_year_f}|${next_change_p}|${year_pe}|${year_pvb}|${year_div_p}|${target_price}|${rec}\n"
+    s"${tmp}|${lastUpdate}|${stockName}|${brokerName}|${year_f}|${change_p}|${next_year_f}|${next_change_p}|${year_pe}|${year_pvb}|${year_div_p}|${target_price}|${rec}|${groupDate}\n"
   }
 }
 

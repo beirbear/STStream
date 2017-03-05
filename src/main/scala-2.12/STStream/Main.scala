@@ -66,7 +66,7 @@ object Main extends App {
     LocalDB.writeFile()
   }
 
-  // automatic
+  automatic
   // STStream.Analysis.APeriodReview.perriodReview
 
   ///// Start REST API
@@ -100,6 +100,10 @@ object Main extends App {
                 // Phase 1: Read meta data from file
                 automatic
                 responseString = "Auto process complete."
+              case "extractStock" => Log.write("Setting: extract stock data.")
+                responseString = LocalDB.getAllStockData
+              case "extractConsensus" => Log.write("Setting: extract consensus data.")
+                responseString = LocalDB.getAllConsensusData
               case smtg => Log.warn("Setting: Invalid command requested. > " + smtg)
                 responseString = "Invalid command!"
             }

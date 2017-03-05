@@ -27,7 +27,7 @@ object LocalDB {
   def pushConsensusInfo(input: ListBuffer[ListBuffer[CInfo]]): Unit = {
     for (item <- input) {
       for (eachItem <- item) {
-        if (!consensusRecord.exists(e => e.lastUpdate == eachItem.lastUpdate && e.stockName == eachItem.stockName)){
+        if (!consensusRecord.exists(e => e.groupDate == eachItem.groupDate && e.stockName == eachItem.stockName)){
           consensusRecord.append(eachItem)
         }
       }
@@ -46,6 +46,20 @@ object LocalDB {
     for (item <- consensusRecord)
       bw1.write(item.toFileString)
     bw1.close()
+  }
+
+  def getAllStockData: String = {
+    val tmp = new StringBuilder()
+    for (item <- stockRecord)
+      tmp.append(item.toFileString + "\n")
+    tmp.toString()
+  }
+
+  def getAllConsensusData: String = {
+    val tmp = new StringBuilder()
+    for (item <- consensusRecord)
+      tmp.append(item.toFileString + "\n")
+    tmp.toString()
   }
 
   def readFile(): Unit = {
@@ -86,7 +100,9 @@ object LocalDB {
         tmp(9).toDouble,
         tmp(10).toDouble,
         tmp(11).toDouble,
-        tmp(12))
+        tmp(12),
+        tmp(13)
+      )
     }
 
     if (STStream.Generals.Services.isFileFolderExist(Def.getStockFile)) {

@@ -134,7 +134,6 @@ object MInterface {
     }
   }
 
-
   def readMetaData: Unit = {
     if (!Service.isFileFolderExist(metaDataFile))
       throw new FileNotFoundException("Metadata doesn't exist!")

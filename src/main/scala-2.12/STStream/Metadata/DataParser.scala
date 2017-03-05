@@ -127,6 +127,10 @@ class DataParser(val srcFolder: String) {
       val round_content = (content >> elementList(".round-border") >> texts("h1")).flatten.flatten
       val stock_name = round_content(0)
 
+      val file = new File(fileName)
+      val curentPath = new File(file.getParent())
+      val groupDate = curentPath.getName
+
       val ccsData: ListBuffer[CInfo] = new ListBuffer[CInfo]()
 
       val tabContent = doc >> elementList("table")
@@ -151,7 +155,7 @@ class DataParser(val srcFolder: String) {
           val format = new java.text.SimpleDateFormat("dd/MM/yyyy")
           val dataTime = format.parse(date)
 
-          ccsData += CInfo(dataTime, stock_name, broker,year_f,change_p,next_year_f,next_change_p,year_pe,year_pvb,year_div_p,target_price,rec)
+          ccsData += CInfo(dataTime, stock_name, broker,year_f,change_p,next_year_f,next_change_p,year_pe,year_pvb,year_div_p,target_price,rec, groupDate)
         }
       }
       ccsData
