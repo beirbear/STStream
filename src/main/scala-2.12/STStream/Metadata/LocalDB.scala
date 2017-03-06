@@ -27,7 +27,7 @@ object LocalDB {
   def pushConsensusInfo(input: ListBuffer[ListBuffer[CInfo]]): Unit = {
     for (item <- input) {
       for (eachItem <- item) {
-        if (!consensusRecord.exists(e => e.groupDate == eachItem.groupDate && e.stockName == eachItem.stockName)){
+        if (!consensusRecord.exists(e => e.groupDate == eachItem.groupDate && e.stockName == eachItem.stockName && e.brokerName == eachItem.brokerName)){
           consensusRecord.append(eachItem)
         }
       }

@@ -145,8 +145,10 @@ object MInterface {
     // Read meta data file
     import scala.io.Source
     for (line <- Source.fromFile(metaDataFile).getLines) {
-      val tmp = line.split('|')
-      localDataList += Record(tmp(0), tmp(1), tmp(2), tmp(3).toLong, getStringBoolean(tmp(4)), getStringBoolean(tmp(5)))
+      if (!line.isEmpty) {
+        val tmp = line.split('|')
+        localDataList += Record(tmp(0), tmp(1), tmp(2), tmp(3).toLong, getStringBoolean(tmp(4)), getStringBoolean(tmp(5)))
+      }
     }
     dataList = localDataList
   }

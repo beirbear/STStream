@@ -66,7 +66,7 @@ object Main extends App {
     LocalDB.writeFile()
   }
 
-  automatic
+  firstExecution
   // STStream.Analysis.APeriodReview.perriodReview
 
   ///// Start REST API
